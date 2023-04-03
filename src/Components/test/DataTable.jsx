@@ -14,7 +14,7 @@ const columns = [
         field: 'image',
         headerName: 'Image',
         width: 100, height: 150,
-        editable: true,
+        // editable: true,
         renderCell: (params) => <img src={params.value} alt="Product" style={{ border: '1px solid #ddd', width: '90%', height: '90%', objectFit: 'cover' }} />
         // renderCell will render the component
     },

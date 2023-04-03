@@ -76,7 +76,7 @@ export default function Testb() {
         getProducts(skip, limit);
     }, [page, limit]);
 
-    const fields = ["title", "description", "price", "images"];
+    const fields = ["ID", "title", "description", "price", "images"];
 
     return (
         <TableContainer component={Paper}>

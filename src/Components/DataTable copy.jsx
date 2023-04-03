@@ -4,7 +4,7 @@
 
 import * as React from "react";
 import { useState, useEffect } from "react";
-import { Paper, SxProps } from "@mui/material";
+import Paper from "@mui/material/Paper";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
 import TableCell from "@mui/material/TableCell";
@@ -12,16 +12,18 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TablePagination from "@mui/material/TablePagination";
 import TableRow from "@mui/material/TableRow";
-import { XGrid } from '@mui/x-data-grid';
 
 const columns = [
     { id: "id", label: "ID" },
     { id: "title", label: "Name", minWidth: 70 },
     { id: "price", label: "Price", minWidth: 40 },
-    { id: "description", label: "Description", minWidth: 200, sort: "null" },
-    { id: "image", label: "Image", minWidth: 40, sort: "null" }
+    { id: "description", label: "Description", minWidth: 200 },
+    { id: "image", label: "Image", minWidth: 40 }
 ];
 
+// function createData(id, name, price, description, image) {
+//     return { id, name, price, description, image };
+// }
 
 export default function DataTable() {
     const [tableData, setTableData] = useState([]);
@@ -46,7 +48,7 @@ export default function DataTable() {
 
     return (
         <Paper sx={{ width: "100%", overflow: "hidden" }}>
-            {/* <TableContainer sx={{ maxHeight: 440 }}>
+            <TableContainer sx={{ maxHeight: 440 }}>
                 <Table stickyHeader aria-label="sticky table">
                     <TableHead>
                         <TableRow>
@@ -80,14 +82,8 @@ export default function DataTable() {
                             })}
                     </TableBody>
                 </Table>
-            </TableContainer> */}
-            <XGrid
-                onRowSelected={(item) => item.tableData}
-                rows={tableData}
-                columns={columns}
-                pageSize={10}
-            />
-            {/* <TablePagination
+            </TableContainer>
+            <TablePagination
                 rowsPerPageOptions={[10, 25, 100]}
                 component="div"
                 count={tableData.length}
@@ -95,7 +91,7 @@ export default function DataTable() {
                 page={page}
                 onPageChange={handleChangePage}
                 onRowsPerPageChange={handleChangeRowsPerPage}
-            /> */}
+            />
         </Paper>
     );
 }
